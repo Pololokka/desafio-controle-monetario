@@ -6,28 +6,41 @@ import Select from "./Components/Select/Index";
 
 function App() {
   return (
-    <div className="App">
-      <Input
-        name="money"
-        title="Entrada de Dinheiro"
-        type="number"
-        minimun={0}
-      />
-      <Button name="5por" title="5%" />
-      <Button name="10por" title="10%" />
-      <Button name="15por" title="15%" />
-      <Button name="20por" title="20%" />
-      <Button name="30por" title="30%" />
+    <main className="App">
+      <h1 className="titulo titulo-hover">Controle de Gastos</h1>
+      <div className="card__geral">
+        <div className="entrada__container">
+          <Input
+            name="money"
+            title="Entrada de Dinheiro"
+            type="number"
+            minimun={0}
+          />
+        </div>
 
-      <Input
-        name="saveCustom"
-        title="Escolha o Valor"
-        type="number"
-        minimun={0}
-        maximum={100}
-      />
+        <h2 className="subtitulo subtitulo-hover">Quanto pretende guardar?</h2>
 
-      {/* <Select
+        <div className="inputs__container">
+          <Button name="5por" title="5%" />
+          <Button name="10por" title="10%" />
+          <Button name="15por" title="15%" />
+          <Button name="20por" title="20%" />
+          <Button name="30por" title="30%" />
+        </div>
+
+        <div className="inputs__container">
+          <input type="button" value="Custom" className="texto btn__geral" />
+
+          <Input
+            name="saveCustom"
+            title="Escolha o Valor do Custom"
+            type="number"
+            minimun={0}
+            maximum={100}
+          />
+        </div>
+
+        {/* <Select
         title="Mês"
         name="months"
         options={{
@@ -46,19 +59,26 @@ function App() {
         }}
       /> */}
 
-      <Input name="day" title="Dia atual" type="text" />
+        <h2 className="subtitulo subtitulo-hover">
+          E quanto tempo a gente tem?
+        </h2>
 
-      <Select
-        title="Último dia do mês"
-        name="lastDay"
-        options={{
-          0: "30",
-          1: "31",
-          2: "28",
-          3: "29",
-        }}
-      />
-    </div>
+        <div className="inputs__container">
+          <Input name="day" title="Dia atual" type="text" />
+
+          <Select
+            title="Último dia do mês"
+            name="lastDay"
+            options={{
+              0: "30",
+              1: "31",
+              2: "28",
+              3: "29",
+            }}
+          />
+        </div>
+      </div>
+    </main>
   );
 }
 

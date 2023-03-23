@@ -193,7 +193,7 @@ select {
   --cor-card-3: #fbe435;
 
   --tamanho-fonte-titulo: 3rem;
-  --tamanho-fonte-subtitulo: 3rem;
+  --tamanho-fonte-subtitulo: 2rem;
   --tamanho-fonte-texto: 1.5rem;
 }
 
@@ -212,17 +212,24 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   background-color: var(--cor-card-centro);
   border-radius: 15px;
   box-shadow: -6px 6px var(--cor-sombra-card-centro-1);
+  padding: 1em;
 }
 
-.show {
-  display: block;
+.entrada__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.hide {
-  display: none;
+.inputs__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .titulo {
