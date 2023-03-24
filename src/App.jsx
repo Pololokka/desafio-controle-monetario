@@ -18,12 +18,7 @@ function App() {
     setFinalDay,
     result,
     resultDaily,
-  } = CalcConsumer;
-
-  const handleMoney = (event) => {
-    setSave(event.target.value);
-    console.log(save);
-  };
+  } = CalcConsumer();
 
   return (
     <main className="App">
@@ -35,7 +30,10 @@ function App() {
             title="Entrada de Dinheiro"
             type="number"
             minimun={0}
-            handleMoney={handleMoney}
+            handleCalc={(event) => {
+              setSave(event.target.value);
+              console.log(save);
+            }}
           />
         </div>
 
@@ -45,15 +43,43 @@ function App() {
           <Button
             name="5por"
             title="5%"
-            onClick={(event) => {
-              setPercent(event.target.value);
+            handleClick={(event) => {
+              setPercent(event);
               console.log(percent);
             }}
           />
-          <Button name="10por" title="10%" />
-          <Button name="15por" title="15%" />
-          <Button name="20por" title="20%" />
-          <Button name="30por" title="30%" />
+          <Button
+            name="10por"
+            title="10%"
+            handleClick={(event) => {
+              setPercent(event);
+              console.log(percent);
+            }}
+          />
+          <Button
+            name="15por"
+            title="15%"
+            handleClick={(event) => {
+              setPercent(event);
+              console.log(percent);
+            }}
+          />
+          <Button
+            name="20por"
+            title="20%"
+            handleClick={(event) => {
+              setPercent(event);
+              console.log(percent);
+            }}
+          />
+          <Button
+            name="30por"
+            title="30%"
+            handleClick={(event) => {
+              setPercent(event);
+              console.log(percent);
+            }}
+          />
         </div>
 
         <div className="inputs__container">
@@ -92,19 +118,25 @@ function App() {
         </h2>
 
         <div className="inputs__container">
-          <Input name="day" title="Dia atual" type="text" />
+          <Input
+            name="day"
+            title="Dia atual"
+            type="text"
+            handleCalc={(event) => {
+              setDay(event.target.value);
+            }}
+          />
 
           <Select
             title="Último dia do mês"
             name="lastDay"
-            options={{
-              0: "30",
-              1: "31",
-              2: "28",
-              3: "29",
-            }}
+            options={["", 30, 31, 28, 29]}
+            handleChange={(event) => setFinalDay(event.target.value)}
           />
         </div>
+
+        <p className="texto">resultado 1: {result}</p>
+        <p className="texto">resultado dia: {resultDaily}</p>
       </div>
     </main>
   );

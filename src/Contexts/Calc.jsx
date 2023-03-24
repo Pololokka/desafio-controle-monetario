@@ -13,14 +13,16 @@ const CalcProvider = ({ children }) => {
   const [resultDaily, setResultDaily] = useState(0);
 
   useEffect(() => {
-    const saving = save * (percent / 100);
-    setResult(saving);
+    if (save !== 0 && percent !== 0 && day !== 0 && finalDay !== 0) {
+      const saving = save * (percent / 100);
+      setResult(saving);
 
-    const time = finalDay - day;
+      const time = finalDay - day;
 
-    const daily = saving / time;
-    setResultDaily(daily);
-  }, [save, percent]);
+      const daily = ((save - saving) / time).toFixed(2);
+      setResultDaily(daily);
+    }
+  }, [save, percent, day, finalDay]);
 
   return (
     <CalcContext.Provider
