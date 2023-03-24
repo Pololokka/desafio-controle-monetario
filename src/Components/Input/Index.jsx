@@ -1,4 +1,4 @@
-const Input = ({ name, title, type, minimun, maximum }) => {
+const Input = ({ name, title, type, minimun, maximum, handleMoney }) => {
   return (
     <>
       <label htmlFor={name} className="texto texto-hover">
@@ -10,7 +10,7 @@ const Input = ({ name, title, type, minimun, maximum }) => {
         min={minimun}
         max={maximum}
         className="texto input__geral"
-        onChange={(event) => console.log(event.target.value)}
+        onChange={(event) => handleMoney(event)}
       />
     </>
   );

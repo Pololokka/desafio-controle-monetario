@@ -1,11 +1,11 @@
-const Button = ({ name, title }) => {
+const Button = ({ name, title, onClick }) => {
   return (
     <input
       type="button"
       value={title}
       name={name}
       className="texto btn__geral"
-      onClick={(event) => console.log(parseInt(event.target.value))}
+      onClick={(event) => onClick(parseInt(event.target.value))}
     />
   );
 };

@@ -4,7 +4,27 @@ import Input from "./Components/Input/Index";
 import Button from "./Components/Button/Index";
 import Select from "./Components/Select/Index";
 
+import { CalcConsumer } from "./Contexts/Calc";
+
 function App() {
+  const {
+    save,
+    setSave,
+    percent,
+    setPercent,
+    day,
+    setDay,
+    finalDay,
+    setFinalDay,
+    result,
+    resultDaily,
+  } = CalcConsumer;
+
+  const handleMoney = (event) => {
+    setSave(event.target.value);
+    console.log(save);
+  };
+
   return (
     <main className="App">
       <h1 className="titulo titulo-hover">Controle de Gastos</h1>
@@ -15,13 +35,21 @@ function App() {
             title="Entrada de Dinheiro"
             type="number"
             minimun={0}
+            handleMoney={handleMoney}
           />
         </div>
 
         <h2 className="subtitulo subtitulo-hover">Quanto pretende guardar?</h2>
 
         <div className="inputs__container">
-          <Button name="5por" title="5%" />
+          <Button
+            name="5por"
+            title="5%"
+            onClick={(event) => {
+              setPercent(event.target.value);
+              console.log(percent);
+            }}
+          />
           <Button name="10por" title="10%" />
           <Button name="15por" title="15%" />
           <Button name="20por" title="20%" />
