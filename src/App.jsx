@@ -15,6 +15,7 @@ function App() {
     setIsCustom,
     isCustom,
     setCustomPer,
+    customPer,
     day,
     setDay,
     finalDay,
@@ -128,7 +129,10 @@ function App() {
           />
         </div>
 
-        <p className="texto">Então você vai guardar um total de R${result}</p>
+        <p className="texto">
+          {isCustom ? customPer : percent}% de {save}. Então você vai guardar um
+          total de R${result}
+        </p>
         <p className="texto">
           Pra sobrar isso ai, você pode gastar R${resultDaily}, por dia
         </p>
