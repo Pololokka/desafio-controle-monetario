@@ -2,7 +2,7 @@
 
 # Controle de Gastos
 
-Controle de gastos
+Desafio de fazer uma aplicação que ajude o usuário com seu gasto mensal
 
 ## Tecnologias
 
@@ -15,7 +15,7 @@ Controle de gastos
 
 ### Home
 
-Página onde o usuário faz suas interações
+Página onde o usuário insere quanto dinheiro recebeu no mês, quanto vai guardar, o dia atual, e o último dia do mês. A página então faz um cálculo e informa quanto o usuário guardará, e quanto ele pode gastar por dia.
 
 ## Sobre
 
