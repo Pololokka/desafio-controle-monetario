@@ -12,6 +12,9 @@ function App() {
     setSave,
     percent,
     setPercent,
+    setIsCustom,
+    isCustom,
+    setCustomPer,
     day,
     setDay,
     finalDay,
@@ -32,7 +35,6 @@ function App() {
             minimun={0}
             handleCalc={(event) => {
               setSave(event.target.value);
-              console.log(save);
             }}
           />
         </div>
@@ -45,7 +47,7 @@ function App() {
             title="5%"
             handleClick={(event) => {
               setPercent(event);
-              console.log(percent);
+              setIsCustom(false);
             }}
           />
           <Button
@@ -53,7 +55,7 @@ function App() {
             title="10%"
             handleClick={(event) => {
               setPercent(event);
-              console.log(percent);
+              setIsCustom(false);
             }}
           />
           <Button
@@ -61,7 +63,7 @@ function App() {
             title="15%"
             handleClick={(event) => {
               setPercent(event);
-              console.log(percent);
+              setIsCustom(false);
             }}
           />
           <Button
@@ -69,7 +71,7 @@ function App() {
             title="20%"
             handleClick={(event) => {
               setPercent(event);
-              console.log(percent);
+              setIsCustom(false);
             }}
           />
           <Button
@@ -77,41 +79,30 @@ function App() {
             title="30%"
             handleClick={(event) => {
               setPercent(event);
-              console.log(percent);
+              setIsCustom(false);
             }}
           />
         </div>
 
         <div className="inputs__container">
-          <input type="button" value="Custom" className="texto btn__geral" />
+          <input
+            type="button"
+            value="Custom"
+            className="texto btn__geral"
+            onClick={() => setIsCustom(true)}
+          />
 
           <Input
             name="saveCustom"
-            title="Escolha o Valor do Custom"
+            title="Escolha o Valor(em %) do Custom"
             type="number"
             minimun={0}
             maximum={100}
+            handleCalc={(event) => {
+              setCustomPer(event.target.value);
+            }}
           />
         </div>
-
-        {/* <Select
-        title="Mês"
-        name="months"
-        options={{
-          0: "Janeiro",
-          1: "Fevereiro",
-          2: "Março",
-          3: "Abril",
-          4: "Maio",
-          5: "Junho",
-          6: "Julho",
-          7: "Agosto",
-          8: "Setembro",
-          9: "Outubro",
-          10: "Novembro",
-          11: "Dezembro",
-        }}
-      /> */}
 
         <h2 className="subtitulo subtitulo-hover">
           E quanto tempo a gente tem?
@@ -122,6 +113,8 @@ function App() {
             name="day"
             title="Dia atual"
             type="text"
+            minimum={0}
+            maximum={31}
             handleCalc={(event) => {
               setDay(event.target.value);
             }}
@@ -135,8 +128,10 @@ function App() {
           />
         </div>
 
-        <p className="texto">resultado 1: {result}</p>
-        <p className="texto">resultado dia: {resultDaily}</p>
+        <p className="texto">Então você vai guardar um total de R${result}</p>
+        <p className="texto">
+          Pra sobrar isso ai, você pode gastar R${resultDaily}, por dia
+        </p>
       </div>
     </main>
   );

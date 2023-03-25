@@ -6,6 +6,9 @@ const CalcProvider = ({ children }) => {
   const [save, setSave] = useState(0);
   const [percent, setPercent] = useState(0);
 
+  const [isCustom, setIsCustom] = useState(false);
+  const [customPer, setCustomPer] = useState(0);
+
   const [day, setDay] = useState(0);
   const [finalDay, setFinalDay] = useState(0);
 
@@ -14,15 +17,21 @@ const CalcProvider = ({ children }) => {
 
   useEffect(() => {
     if (save !== 0 && percent !== 0 && day !== 0 && finalDay !== 0) {
-      const saving = save * (percent / 100);
-      setResult(saving);
+      let saving;
+      if (isCustom === false) {
+        saving = save * (percent / 100);
+        setResult(saving);
+      } else if (customPer !== 0) {
+        saving = save * (customPer / 100);
+        setResult(saving);
+      }
 
       const time = finalDay - day;
 
       const daily = ((save - saving) / time).toFixed(2);
       setResultDaily(daily);
     }
-  }, [save, percent, day, finalDay]);
+  }, [save, percent, day, finalDay, isCustom, customPer]);
 
   return (
     <CalcContext.Provider
@@ -31,6 +40,10 @@ const CalcProvider = ({ children }) => {
         setSave,
         percent,
         setPercent,
+        isCustom,
+        setIsCustom,
+        customPer,
+        setCustomPer,
         result,
         setResult,
         resultDaily,
